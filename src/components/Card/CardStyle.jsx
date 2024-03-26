@@ -21,12 +21,13 @@ export const ContainerTextImg = styled.div`
         align-items: center;
         gap: 10px;
         margin-right: 10px;
-        padding-bottom: 15px;
+        padding-bottom: 35px;
+
 
         font-size: ${(props) => (props.top ? "1.3rem" : ".9rem")};
         
         h2{
-            font-size: ${(props) => (props.top ? "3rem" : "1.4rem")};
+            font-size: ${(props) => (props.top ? "2.6rem" : "1.4rem")};
         }
     }
 
