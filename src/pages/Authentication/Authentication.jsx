@@ -44,7 +44,9 @@ const Authentication = () => {
     const inHandleSubmit = async (data) => {
         try {
             const response = await signin(data)
-            Cookies.set("token", response.data, { expires: 1 })
+            const token = response.data
+            Cookies.set("token", token, { expires: 2 })
+            console.log(response);
             navigate("/")
         } catch (err) {
             console.error(err)
@@ -54,7 +56,7 @@ const Authentication = () => {
     const upHandleSubmit = async (data) => {
         try {
             const response = await signup(data)
-            Cookies.set("token", response.data, { expires: 1 })
+            Cookies.set("token", response.data, { expires: 2 })
             navigate("/")
         } catch (err) {
             console.error(err)

@@ -1,5 +1,3 @@
-import { useContext } from "react"
-
 // import icons
 import { BiLike } from "react-icons/bi"
 import { AiOutlineMessage } from "react-icons/ai"
@@ -9,37 +7,21 @@ import { TextLimit } from "../TextLimit"
 import { RiDeleteBinLine } from "react-icons/ri"
 
 // import styled-components
-import { ContainerDeleteCard, ContainerIcon, ContainerText, Icon, Img, SectionCard } from "./CardStyle"
+import { ContainerDeleteCard, ContainerIcon, ContainerText, Icon, Img, SectionCard, TextLimitPTag } from "./CardTopStyle"
 
-// import components
-import { deleteNewService } from "../../services/postsService"
-
-// import useContext
-import { UserContext } from "../../Context/UserContext"
-
-const Card = (props) => {
-    // useContext
-    const { user, setUser } = useContext(UserContext)
-
-    const deleteNew = async () => {
-        try {
-            const response = await deleteNewService(props)
-            console.log(response);
-        } catch (error) {
-
-        }
-    }
+const CardTop = (props) => {
 
 
     return (
         <SectionCard>
             <ContainerDeleteCard>
-                <RiDeleteBinLine onClick={deleteNew} />
+                <RiDeleteBinLine />
             </ContainerDeleteCard>
             <Img src={props.banner} />
             <ContainerText top={props.top}>
                 <h2>{props.title}</h2>
-                <TextLimit text={props.text} limit={180}></TextLimit>
+                <TextLimitPTag><TextLimit text={props.text} limit={150}></TextLimit></TextLimitPTag>
+                
                 <button>Ler mais</button>
             </ContainerText>
             <ContainerIcon >
@@ -56,4 +38,4 @@ const Card = (props) => {
     )
 }
 
-export default Card
+export default CardTop

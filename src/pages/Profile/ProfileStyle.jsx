@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Section Header
 export const ProfileContainer = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 `
 
 export const ProfileHeader = styled.div`
@@ -40,17 +40,32 @@ export const ProfileEdit = styled.div`
         font-size: 1.3rem;
     }
 
+    &:hover::after {
+    content: attr(value);
+    position: absolute;
+    top: 130%;
+    left: 100%;
+    transform: translateX(-50%);
+    background-color: #6D28D9;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    }
+
 `
 
 export const ProfileBackground = styled.img`
     position: absolute;
     width: 100%;
-    height: 50%;
+    height: 60%;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     object-fit: cover;
+    object-position: center;
     border-radius: 0.3rem 0.3rem 0 0;
     z-index: -1;
 `
@@ -67,6 +82,7 @@ export const ProfileUser = styled.div`
         font-size: 13px;
         font-weight: 500;
     }
+
 `
 export const ProfileAvatar = styled.img`
     width: 120px;
@@ -84,7 +100,6 @@ export const ProfileActions = styled.div`
 export const ProfileIconAdd = styled.div`
     color: #6D28D9;
     border-radius: 50%;
-    padding: 4px;
     display: flex;
     align-items: center;
     
@@ -95,8 +110,23 @@ export const ProfileIconAdd = styled.div`
     }
 
     svg{
-        font-size: 1.7rem;
+        font-size: 2rem;
     }
+
+    &:hover::after {
+    content: attr(value);
+    position: absolute;
+    top: 130%;
+    left: 120%;
+    transform: translateX(-50%);
+    background-color: #6D28D9;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    }
+
 `
 // Section posts
 
@@ -106,6 +136,7 @@ export const ProfilePosts = styled.div`
     grid-gap: 15px;
     margin: 1rem auto;
     width: 80%;
+
 
     h3{
         grid-column: 1 / -1;

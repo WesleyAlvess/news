@@ -13,30 +13,49 @@ const fade = keyframes`
     }
 `
 
-export const Nav = styled.nav`
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid #ece9e9;
+export const MenuIcon = styled.div`
+    svg{
+        position: absolute;
+        top: 22px;
+        right: 15px;
+        font-size: 27px;
+        color: #6D28D9;
+    }
+
+    @media (min-width: 1050px) {
+        display: none;
+    }
+
 `
 
 export const ContainerNavbar = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 90%;
-    margin: 0 auto;
-    height: 70px;
-    
-    form{
-        @media (max-width: 1050px) {
-        display: none;
+        width: 300px;
+        border-radius: 10px 0 10px 10px;
+        position: absolute;
+        background-color: #c0a6e7;
+        top: 45px;
+        right: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+        animation: ${fade} 0.5s ease-in-out forwards;
+        
+        span{
+            margin-left: 150px;
         }
-    }
+
+        form{
+            @media (max-width: 1049px) {
+                margin: 0 auto;
+            }
+        }
+
+        @media (min-width: 1049px) {
+                display: none;
+            }
+
 `
 
 
@@ -173,10 +192,6 @@ export const ContainerButton = styled.div`
         }
     }
 
-    @media (max-width: 1050px) {
-        display: none;
-    }
-
 `
 
 export const ErrorSpan = styled.span`
@@ -221,6 +236,7 @@ export const LinkProfile = styled(Link)`
         position: absolute;
         top: 55%;
         left: 45%;
+        z-index: 1;
         transform: translateX(-50%);
         background-color: #6D28D9;
         color: #fff;

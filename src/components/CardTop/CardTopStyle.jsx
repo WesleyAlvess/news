@@ -3,20 +3,21 @@ import styled from "styled-components";
 export const SectionCard = styled.section`
     background-color: #fff;
     width: 100%;
-    height: 200px;
+    height: 250px;
     overflow: hidden;
     border-radius: 5px;
     margin-bottom: 20px;
     position: relative;
-    border: 1px solid #ece9e9;
+    border: 1px solid #6D28D9;
 
     display: flex;
 
-    @media (max-width: 1948px) {
-        width: 300px;
-        height: 450px;
+    @media (max-width: 1050px) {
+        width: 330px;
+        height: 550px;
         flex-direction: column;
     }
+
 `
 
 export const ContainerDeleteCard = styled.div`
@@ -40,15 +41,17 @@ export const ContainerDeleteCard = styled.div`
     }
 
     @media (max-width: 1948px) {
-        top: 210px;
+        top: 260px;
         right: 10px;
 
     }
+
 `
 
 export const Img = styled.img`
-    width: 300px;
-    height: 200px;
+    background-color: aqua;
+    width: 380px;
+    height: 250px;
     background-size: cover;
 `
 
@@ -57,26 +60,52 @@ export const ContainerText = styled.div`
     padding: 10px;
 
 
+    font-size: 1.5rem;
+    
     h2{
+        font-size: 25.;
         margin-bottom: .5rem;
     }
     
     button{
         position: absolute;
-        bottom: 10px;
-        padding: 5px 15px;
+        bottom: 25px;
+        padding: 10px 25px;
         border-radius: 5px;
         border: none;
         outline: none;
         background-color: #6D28D9;
         color: #fff;
         transition: .5s ease-in-out;
+        font-size: 15px;
 
         &:hover{
             background-color: #4a218c;
         }
     }
 
+        
+    @media (max-width: 1300px) {
+
+        h2{
+            font-size: 2rem;
+        }
+
+        button{
+            bottom: 10px;
+            font-size: 13px;
+            padding: 5px 15px;
+        }
+    }
+
+`
+
+export const TextLimitPTag = styled.div`
+    font-size: 1.3rem;
+
+    @media (max-width: 1300px) {
+        font-size: 1.2rem;
+    }
 `
 
 export const ContainerIcon = styled.div`

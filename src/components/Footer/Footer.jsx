@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <ContainerFooter>
             <div>
-            Copyright &copy; 2024. Todos os direitos reservados
+                <p>Feito por <span>Wesley Pereira</span></p>
             </div>
         </ContainerFooter>
     )

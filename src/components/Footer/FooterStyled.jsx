@@ -14,5 +14,14 @@ export const ContainerFooter = styled.footer`
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 15px;
+
+        p {
+            font-weight: 600;
+
+            span{
+                color: #6D28D9;
+            }
+        }
     }
 `
