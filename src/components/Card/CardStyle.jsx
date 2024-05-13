@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SectionCard = styled.section`
     background-color: #fff;
-    width: 100%;
+    max-width: 100%;
     height: 200px;
     overflow: hidden;
     border-radius: 5px;
@@ -12,38 +12,17 @@ export const SectionCard = styled.section`
 
     display: flex;
 
-    @media (max-width: 1948px) {
+    //Deixa o card responsivo
+    @media (max-width: 768px) {
         width: 300px;
-        height: 450px;
+        height: 470px;
+
+        display: flex;
+        align-items: center;
         flex-direction: column;
     }
-`
+    
 
-export const ContainerDeleteCard = styled.div`
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    border-radius: 50%;
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    color: #6D28D9;
-    transition: .3s ease-in-out;
-
-    &:hover{
-        background-color: orangered;
-        color: #fff;
-    }
-
-    svg{
-        font-size: 1.3rem;
-    }
-
-    @media (max-width: 1948px) {
-        top: 210px;
-        right: 10px;
-
-    }
 `
 
 export const Img = styled.img`

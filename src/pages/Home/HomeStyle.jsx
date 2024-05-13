@@ -27,10 +27,15 @@ export const ContainerCards = styled.div`
 
 export const HomeTopCard = styled.section`
     max-width: 80%;
+    width: 80%;
     margin: 1rem auto;
 
     @media (max-width: 768px) {
         max-width: 100%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
 `
@@ -43,13 +48,13 @@ export const HomeCards = styled.section`
     margin: 0 auto;
     
     @media (max-width: 1948px) {
-        grid-template-columns: repeat( 4, 1fr );
+        grid-template-columns: repeat( 2, 1fr );
     }
     @media (max-width: 1724px) {
-        grid-template-columns: repeat( 3, 1fr );
+        grid-template-columns: repeat( 1, 1fr );
     }
     @media (max-width: 1300px) {
-        grid-template-columns: repeat( 2, 1fr );
+        grid-template-columns: repeat( 1, 1fr );
     }
     @media (max-width: 1050px) {
         grid-template-columns: repeat( 1, 1fr );
@@ -82,4 +87,32 @@ export const NoNewsFound = styled.p`
     justify-content: center;
     font-size: 1.5rem;
     margin-top: 200px;
+`
+
+export const ConstainerNextPosts = styled.div`
+    width: 98%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+
+    button{
+        font-weight: bold;
+        outline: none;
+        border: none;
+        color: #fff;
+        background-color: #6D28D9;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        padding: 6px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #4b2190;
+            transition:.5s ease-in-out;
+        }
+    }
 `

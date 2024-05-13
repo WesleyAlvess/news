@@ -9,7 +9,7 @@ import { TextLimit } from "../TextLimit"
 import { RiDeleteBinLine } from "react-icons/ri"
 
 // import styled-components
-import { ContainerDeleteCard, ContainerIcon, ContainerText, Icon, Img, SectionCard } from "./CardStyle"
+import { ContainerIcon, ContainerText, Icon, Img, SectionCard } from "./CardStyle"
 
 // import components
 import { deleteNewService } from "../../services/postsService"
@@ -33,13 +33,10 @@ const Card = (props) => {
 
     return (
         <SectionCard>
-            <ContainerDeleteCard>
-                <RiDeleteBinLine onClick={deleteNew} />
-            </ContainerDeleteCard>
             <Img src={props.banner} />
             <ContainerText top={props.top}>
                 <h2>{props.title}</h2>
-                <TextLimit text={props.text} limit={180}></TextLimit>
+                <TextLimit text={props.text} limit={150}></TextLimit>
                 <button>Ler mais</button>
             </ContainerText>
             <ContainerIcon >

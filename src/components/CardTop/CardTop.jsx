@@ -7,16 +7,13 @@ import { TextLimit } from "../TextLimit"
 import { RiDeleteBinLine } from "react-icons/ri"
 
 // import styled-components
-import { ContainerDeleteCard, ContainerIcon, ContainerText, Icon, Img, SectionCard, TextLimitPTag } from "./CardTopStyle"
+import { ContainerIcon, ContainerText, Icon, Img, SectionCard, TextLimitPTag } from "./CardTopStyle"
 
 const CardTop = (props) => {
 
 
     return (
         <SectionCard>
-            <ContainerDeleteCard>
-                <RiDeleteBinLine />
-            </ContainerDeleteCard>
             <Img src={props.banner} />
             <ContainerText top={props.top}>
                 <h2>{props.title}</h2>

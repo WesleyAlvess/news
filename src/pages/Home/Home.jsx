@@ -11,7 +11,7 @@ import Footer from '../../components/Footer/Footer'
 import CardTop from '../../components/CardTop/CardTop'
 
 // import styles
-import { ContainerALl, ContainerCards, ContainerSpinnerLoading, HomeCards, HomeTopCard, NoNewsFound } from './HomeStyle'
+import { ConstainerNextPosts, ContainerALl, ContainerCards, ContainerSpinnerLoading, HomeCards, HomeTopCard, NoNewsFound } from './HomeStyle'
 
 import { ImSpinner9 } from "react-icons/im"
 
@@ -20,14 +20,26 @@ const Home = () => {
     const [posts, setAllPosts] = useState([])
     const [topPost, setTopPost] = useState({})
     const [loading, setLoading] = useState(true)
-
+    // paginação
+    const [pagination, setPagination] = useState({
+        nextUrl: '/posts?limit=5&offset=5',
+        previousUrl: null,
+        limit: 5,
+        offset: 0,
+        total: 0
+    })
 
     // Get all posts
     const fetchApi = async () => {
-        const response = await axios.get('http://localhost:3000/posts')
-        setAllPosts(response.data.results)
-        console.log(response.data.results)
-        setLoading(false)
+        setLoading(true)
+        try {
+            const response = await axios.get('http://localhost:3000/posts')
+            setAllPosts(response.data.results)
+        } catch (err) {
+            console.error('Erro ao carregar próximas postagens:', err);
+        } finally{
+            setLoading(false);
+        }
     }
     useEffect(() => {
         fetchApi()
@@ -37,13 +49,56 @@ const Home = () => {
     const getTopPost = async () => {
         const response = await axios.get('http://localhost:3000/posts/top')
         setTopPost(response.data.post)
-        console.log(response.data.post)
         setLoading(false)
     }
 
     useEffect(() => {
         getTopPost()
     }, [])
+
+    
+    const nextPosts = async () => {
+        setLoading(true)
+        try {
+            const response = await axios.get(`http://localhost:3000${pagination.nextUrl}`)
+            setAllPosts(response.data.results)
+
+            console.log(response.data)
+
+            setPagination({
+                nextUrl: response.data.nextUrl,
+                previousUrl: response.data.previousUrl,
+                limit: response.data.limit,
+                offset: response.data.offset,
+                total: response.data.total
+            })
+
+
+        } catch (err) {
+            console.error('Erro ao carregar próximas postagens:', err);
+        } finally{
+            setLoading(false)
+        }
+    }
+    
+    const previousPosts = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get(`http://localhost:3000${pagination.previousUrl}`);
+            setAllPosts(response.data.results);
+            setPagination({
+                nextUrl: response.data.nextUrl,
+                previousUrl: response.data.previousUrl,
+                limit: response.data.limit,
+                offset: response.data.offset,
+                total: response.data.total
+            });
+        } catch (err) {
+            console.error('Erro ao carregar postagens anteriores:', err);
+        } finally {
+            setLoading(false);
+        }
+    }
 
 
     return (
@@ -91,6 +146,10 @@ const Home = () => {
                     )}
                 </ContainerCards>
             )}
+            <ConstainerNextPosts>
+                <button onClick={previousPosts}>Anterior</button>
+                <button onClick={nextPosts}>Próximo</button>
+            </ConstainerNextPosts>
             <Footer />
         </ContainerALl>
     )

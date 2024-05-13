@@ -137,6 +137,13 @@ export const ProfilePosts = styled.div`
     margin: 1rem auto;
     width: 80%;
 
+    @media (max-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
 
     h3{
         grid-column: 1 / -1;
